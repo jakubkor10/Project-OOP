@@ -847,7 +847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b049ff4c10a042c41bab6652a744d0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: []
   mainManager: {fileID: 1198719041}
 --- !u!1 &867220825
 GameObject:
@@ -1279,7 +1278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea02fde013de9154088a5a547f1a7250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCharacter: {fileID: 0}
+  characters:
+  - {fileID: 1331589881491628968, guid: 334bc1a8a265f774fb1f769de1b4992e, type: 3}
+  - {fileID: 4183225631695672508, guid: aa86a92a1d4ef7145a09b3cf726795d1, type: 3}
+  - {fileID: 9196055823089959424, guid: 5793ff581a54d0d4db2a4b56e7f252c3, type: 3}
 --- !u!4 &1198719042
 Transform:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
-
+    public GameObject[] characters;
     static MainManager instance = null;
-    public GameObject playerCharacter;
+    public GameObject playerCharacter { get; private set; }
     string savePath;
     
     private void Awake()
@@ -23,9 +23,9 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(this);
         savePath = Application.persistentDataPath + "/savefile.json";
     }
-    public void SelectCharacter(GameObject character)
+    public void SelectCharacter(int characterIndex)
     {
-        playerCharacter = character;
+        playerCharacter = characters[characterIndex];
     }
     [System.Serializable]
     class SaveData

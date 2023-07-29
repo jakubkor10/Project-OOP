@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour//INHERITANCE
     }
     public bool isGrounded()//ABSTRACTION
     {
-        Vector3 playerBottom = new Vector3(0,transform.position.y-playerCollider.bounds.extents.y,0);
+        Vector3 playerBottom = new Vector3(transform.position.x,transform.position.y-playerCollider.bounds.extents.y,transform.position.z);
         Debug.DrawRay(playerBottom, Vector3.down * groundCheckDepth, Color.red, 100);
         if (Physics.Raycast(playerBottom, Vector3.down, groundCheckDepth))
         {

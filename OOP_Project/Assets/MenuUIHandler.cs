@@ -11,29 +11,21 @@ using UnityEngine.SceneManagement;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    public GameObject[] characters;
     public MainManager mainManager;
     
-    private void Start()
+    public void PlayRogue()
     {
-        if (mainManager = null)
-        {
-            FindObjectOfType<MainManager>();
-        }
-    }
-    public void PlaySquire()
-    {
-        mainManager.SelectCharacter(characters[0]);
+        mainManager.SelectCharacter(0);
         SceneManager.LoadScene(1);
     }
     public void PlayTank()
     {
-        mainManager.SelectCharacter(characters[1]);
+        mainManager.SelectCharacter(1);
         SceneManager.LoadScene(1);
     }
-    public void PlayRogue()
+    public void PlaySquire()
     {
-        mainManager.SelectCharacter(characters[2]);
+        mainManager.SelectCharacter(2);
         SceneManager.LoadScene(1);
 
     }
