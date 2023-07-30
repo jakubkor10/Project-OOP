@@ -12,22 +12,57 @@ using UnityEngine.SceneManagement;
 public class MenuUIHandler : MonoBehaviour
 {
     public MainManager mainManager;
+    public Button[] buttons = new Button[3];
+    Image[] buttonImages = new Image[3];
+    Color selectionHighlightColor = Color.green;
+    Color defaultButtonColor = Color.white;
+    private void Start()
+    {
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttonImages[i] = buttons[i].GetComponent<Image>();
+        }
+
+        mainManager = FindObjectOfType<MainManager>();
+
+        if (mainManager.playerCharacter != null)
+        {
+            HighlightSelection();
+        }
+    }
+    public void Play()
+    {
+        mainManager.Play();
+    }
+    public void Exit()
+    {
+        mainManager.SavePlayerInfo();
+        mainManager.Exit();
+    }
     
-    public void PlayRogue()
+    public void SelectRogue()
     {
         mainManager.SelectCharacter(0);
-        SceneManager.LoadScene(1);
+        HighlightSelection();
     }
-    public void PlayTank()
+    public void SelectTank()
     {
         mainManager.SelectCharacter(1);
-        SceneManager.LoadScene(1);
+        HighlightSelection();
     }
-    public void PlaySquire()
+    public void SelectSquire()
     {
         mainManager.SelectCharacter(2);
-        SceneManager.LoadScene(1);
+        HighlightSelection();
 
+    }
+    public void HighlightSelection()
+    {
+        foreach (var image in buttonImages)
+        {
+            image.color = defaultButtonColor;
+        }
+        buttonImages[mainManager.playerCharacterIndex].color = selectionHighlightColor;
     }
 }
 
